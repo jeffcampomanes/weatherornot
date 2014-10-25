@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
 
+  resources :users
+
   get '/login' => 'session#new'
   post '/session' => 'session#create'
   delete '/session' => 'session#destroy'
 
   get '/welcome' => 'weather#index'
+
+  get '/register' => 'users#new'
+  post '/register' => 'users#create'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

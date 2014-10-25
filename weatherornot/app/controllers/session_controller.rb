@@ -1,6 +1,7 @@
 class SessionController < ApplicationController
 
 	def new
+		@user = User.new
 		render :new
 	end
 
@@ -13,14 +14,13 @@ class SessionController < ApplicationController
 		else
 			@error = true
 			render :new
-			end
-	 end	
+		end
+	end
 
 	def destroy
 		reset_session
 		redirect_to '/login'
 	end
-
 
 
 ###
