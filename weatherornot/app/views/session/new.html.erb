@@ -1,0 +1,13 @@
+<h2> Sign In Test for Weather or Not</h2>
+<% if @error %>
+	<p style='color: red;'>Incorrect email/password</p>
+<%end%>
+
+<form action="/session" method="POST">
+	<input type="text" name="email" placeholder="Email">
+	<input type="password" name="password" placeholder="Password">
+
+	<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+
+	<button> Submit </button>
+</form>
