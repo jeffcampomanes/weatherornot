@@ -12,6 +12,6 @@ class WeatherController < ApplicationController
     else
       redirect_to "/login"
     end
-   end
+  end
 
 end

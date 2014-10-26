@@ -6,7 +6,7 @@
 </head>
 <body>
 
-	<h2> Welcome Back <%= @user.email %> !</h2>
+	<h2> Hello <%= @user.first_name %>, this is Weather or Not.</h2>
 
 <!-- logout -->
 	<form method="POST" action="/session">
@@ -15,6 +15,10 @@
 		<button>Logout</button>
 	</form>
 
+<br>
+<br>
+<input name="text" placeholder="Zip Code">
+<button> Search </button> 
 	
 </body>
 </html>

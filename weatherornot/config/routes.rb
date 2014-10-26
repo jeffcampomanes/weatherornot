@@ -6,12 +6,13 @@ Rails.application.routes.draw do
   post '/session' => 'session#create'
   delete '/session' => 'session#destroy'
 
-  get '/welcome' => 'weather#index'
-
   get '/register' => 'users#new'
   post '/register' => 'users#create'
 
+  get '/welcome' => 'weather#index'
 
+  get "pages/home"
+  root :to => "pages#home"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
