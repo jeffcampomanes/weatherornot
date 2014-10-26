@@ -15,10 +15,17 @@
 		<button>Logout</button>
 	</form>
 
+<!-- shows current weather -->
+	It is <%= @weather_lookup.temperature %> degrees in New York City!
+	<%= image_tag @weather_lookup.icon %>
+	<%=  @weather_lookup.weekday_name %>
+
 <br>
 <br>
-<input name="text" placeholder="Zip Code">
-<button> Search </button> 
+
+<!-- make this search via zip code -->
+	<input name="text" placeholder="Zip Code">
+	<button> Search </button> 
 	
 </body>
 </html>

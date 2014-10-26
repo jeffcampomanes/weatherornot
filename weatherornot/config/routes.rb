@@ -11,8 +11,8 @@ Rails.application.routes.draw do
 
   get '/welcome' => 'weather#index'
 
-  get "pages/home"
-  root :to => "pages#home"
+  # get "weather/index"
+  # root :to => "weather#home"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
