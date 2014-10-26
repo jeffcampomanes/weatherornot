@@ -15,10 +15,26 @@
 		<button>Logout</button>
 	</form>
 
+<br>
 <!-- shows current weather -->
+Current:
+<br>
 	It is <%= @weather_lookup.temperature %> degrees in New York City!
 	<%= image_tag @weather_lookup.icon %>
 	<%=  @weather_lookup.weekday_name %>
+
+<br>
+<br>
+
+<!-- tomorrow's weather -->
+Tomorrow:
+<br>
+	<%= @weather_lookup.tomorrow %> <br>
+	<%= @weather_lookup.tomorrow_condition %>
+
+<br>
+<br>
+
 
 <!-- week -->
 <br>

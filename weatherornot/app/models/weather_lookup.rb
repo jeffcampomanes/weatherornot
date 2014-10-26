@@ -1,9 +1,12 @@
 class WeatherLookup
-	attr_accessor :temperature, :icon, :weekday_name, :day_one, :day_one_condition, :day_two, :day_two_condition, :day_three, :day_three_condition, :day_four, :day_four_condition, :day_five, :day_five_condition, :day_six, :day_six_condition, :day_seven, :day_seven_condition
+	attr_accessor :temperature, :icon, :weekday_name, :tomorrow, :tomorrow_condition, :day_one, :day_one_condition, :day_two, :day_two_condition, :day_three, :day_three_condition, :day_four, :day_four_condition, :day_five, :day_five_condition, :day_six, :day_six_condition, :day_seven, :day_seven_condition
 
 	def initialize
   	hourly_weather_hash = fetch_hourly_weather
     hourly_temperature(hourly_weather_hash)
+
+    tomorrow_weather_hash = fetch_tomorrow_weather
+    tomorrow_forecast(tomorrow_weather_hash)
 
     week_weather_hash = fetch_week_forecast
     week_forecast(week_weather_hash)
@@ -19,6 +22,16 @@ class WeatherLookup
     self.icon = hourly_forecast_response['icon_url']
     self.weekday_name = hourly_forecast_response['FCTTIME']['pretty']
  	end
+
+  def fetch_tomorrow_weather
+    HTTParty.get("http://api.wunderground.com/api/be8f986fd83540b9/forecast/q/NY/New_York.xml")
+  end
+
+  def tomorrow_forecast(tomorrow_weather_hash)
+    tomorrow_forecast_response = tomorrow_weather_hash.parsed_response['response']['forecast']['txt_forecast']['forecastdays']
+    self.tomorrow = tomorrow_forecast_response['forecastday'][2]['title']
+    self.tomorrow_condition = tomorrow_forecast_response['forecastday'][2]['fcttext']
+  end
 
   def fetch_week_forecast
     HTTParty.get('http://api.wunderground.com/api/be8f986fd83540b9/forecast10day/q/NY/New_York.xml')  
@@ -46,7 +59,6 @@ class WeatherLookup
     
     self.day_seven = weekly_forecast_response['forecastday'][12]['title']
     self.day_seven_condition = weekly_forecast_response['forecastday'][12]['fcttext']
-
   end
 
 end
