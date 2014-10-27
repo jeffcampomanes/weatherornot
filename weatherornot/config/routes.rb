@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :users
   
-  root 'session#new'
+  root 'weather#new'
 
   get '/login' => 'session#new'
   post '/session' => 'session#create'
@@ -14,7 +14,10 @@ Rails.application.routes.draw do
   get '/welcome' => 'weather#index'
 
   #sign in with user signed in
-  get '/forecast' => 'weather#show'
+  get '/weather' => 'weather#show'
+
+  # get '/weather' => 'weather#new'
+
 
 
   # get "weather/index"
