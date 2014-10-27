@@ -8,6 +8,7 @@
 
 	<h2> Hello <%= @user.first_name %>, this is Weather or Not.</h2>
 
+
 <!-- logout -->
 	<form method="POST" action="/session">
 		<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
@@ -15,44 +16,6 @@
 		<button>Logout</button>
 	</form>
 
-<br>
-
-<!-- shows current weather -->
-Current:
-<br>
-	It is <%= @weather_lookup.temperature %> degrees in New York City!
-	<%= image_tag @weather_lookup.icon %>
-	<%=  @weather_lookup.weekday_name %>
-
-<br>
-<br>
-
-<!-- tomorrow's weather -->
-Tomorrow:
-<br>
-	<%= @weather_lookup.tomorrow %> <br>
-	<%= @weather_lookup.tomorrow_condition %>
-
-<br>
-<br>
-
-<!-- week -->
-<br>
-	<%=@weather_lookup.day_one %> : <%= @weather_lookup.day_one_condition %>
-<br>
-	<%=@weather_lookup.day_two %> : <%= @weather_lookup.day_two_condition %>
-<br>
-	<%=@weather_lookup.day_three %> : <%= @weather_lookup.day_three_condition %>
-<br>
-	<%=@weather_lookup.day_four %> : <%= @weather_lookup.day_four_condition %>
-<br>
-	<%=@weather_lookup.day_five %> : <%= @weather_lookup.day_five_condition %>
-<br>
-	<%=@weather_lookup.day_six %> : <%= @weather_lookup.day_six_condition %>
-<br>
-	<%=@weather_lookup.day_seven %> : <%= @weather_lookup.day_seven_condition %>
-
-<br>
 <br>
 
 <!-- make this search via zip code -->

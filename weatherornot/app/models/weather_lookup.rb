@@ -1,8 +1,8 @@
 class WeatherLookup
 	attr_accessor :temperature, :icon, :weekday_name, :tomorrow, :tomorrow_condition, :day_one, :day_one_condition, :day_two, :day_two_condition, :day_three, :day_three_condition, :day_four, :day_four_condition, :day_five, :day_five_condition, :day_six, :day_six_condition, :day_seven, :day_seven_condition
 
-
-	def initialize
+	def initialize(zip)
+    @zip = zip
   	hourly_weather_hash = fetch_hourly_weather
     hourly_temperature(hourly_weather_hash)
 
@@ -14,7 +14,7 @@ class WeatherLookup
 	end
 
 	def fetch_hourly_weather
-    HTTParty.get("http://api.wunderground.com/api/be8f986fd83540b9/hourly/q/10175.xml")
+    HTTParty.get("http://api.wunderground.com/api/be8f986fd83540b9/hourly/q/#{@zip}.xml")
 	end
 
 	def hourly_temperature(hourly_weather_hash)

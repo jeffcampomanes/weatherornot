@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   
   root 'session#new'
 
-
   get '/login' => 'session#new'
   post '/session' => 'session#create'
   delete '/session' => 'session#destroy'
@@ -13,6 +12,10 @@ Rails.application.routes.draw do
   post '/register' => 'users#create'
 
   get '/welcome' => 'weather#index'
+
+  get '/forecast' => 'weather#show'
+  get '/location' => 'weather#index'
+
 
   # get "weather/index"
   # root :to => "weather#home"
