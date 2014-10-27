@@ -2,22 +2,10 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Welcome</title>
+	<title> </title>
 
 </head>
 <body>
-
-<h2> Hello <%= @user.first_name %>, this is Weather or Not.</h2>
-
-
-<!-- logout -->
-	<form method="POST" action="/session">
-		<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
-		<input name="_method" value="DELETE" type="hidden">
-		<button>Logout</button>
-	</form>
-
-<br>
 
 <!-- search by zip code -->
 <!-- <form> -->	

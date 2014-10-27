@@ -13,8 +13,8 @@ Rails.application.routes.draw do
 
   get '/welcome' => 'weather#index'
 
+  #sign in with user signed in
   get '/forecast' => 'weather#show'
-  get '/location' => 'weather#index'
 
 
   # get "weather/index"
