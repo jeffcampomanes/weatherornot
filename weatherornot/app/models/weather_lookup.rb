@@ -3,6 +3,9 @@ class WeatherLookup
 
 	def initialize(zip)
     @zip = zip
+    @city = zip.to_region(city: true)
+    @state = zip.to_region(state: true)
+
   	hourly_weather_hash = fetch_hourly_weather
     hourly_temperature(hourly_weather_hash)
 
@@ -12,6 +15,14 @@ class WeatherLookup
     week_weather_hash = fetch_week_forecast
     week_forecast(week_weather_hash)
 	end
+
+  def city
+    return @city
+  end
+
+  def state
+    return @state
+  end
 
 	def fetch_hourly_weather
     HTTParty.get("http://api.wunderground.com/api/be8f986fd83540b9/hourly/q/#{@zip}.xml")
@@ -25,7 +36,7 @@ class WeatherLookup
  	end
 
   def fetch_tomorrow_weather
-    HTTParty.get("http://api.wunderground.com/api/be8f986fd83540b9/forecast/q/NY/New_York.xml")
+    HTTParty.get("http://api.wunderground.com/api/be8f986fd83540b9/forecast/q/#{state}/#{city.tr(' ', '_')}.xml")
   end
 
   def tomorrow_forecast(tomorrow_weather_hash)
@@ -35,7 +46,7 @@ class WeatherLookup
   end
 
   def fetch_week_forecast
-    HTTParty.get('http://api.wunderground.com/api/be8f986fd83540b9/forecast10day/q/NY/New_York.xml')  
+    HTTParty.get("http://api.wunderground.com/api/be8f986fd83540b9/forecast10day/q/#{state}/#{city.tr(' ', '_')}.xml")  
   end
 
   def week_forecast(week_weather_hash)

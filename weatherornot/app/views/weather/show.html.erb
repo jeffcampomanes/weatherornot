@@ -2,7 +2,7 @@
 <!-- shows current weather -->
 Current:
 <br>
-	It is <%= @weather_lookup.temperature %> degrees in New York City!
+	It is <%= @weather_lookup.temperature %> degrees in <%= @weather_lookup.city %>, <%= @weather_lookup.state %>!
 	<%= image_tag @weather_lookup.icon %>
 	<%=  @weather_lookup.weekday_name %>
 

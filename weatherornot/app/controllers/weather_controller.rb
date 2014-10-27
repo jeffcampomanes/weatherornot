@@ -18,7 +18,7 @@ class WeatherController < ApplicationController
   end
 
   def show
-    @weather_lookup = WeatherLookup.new
+    @weather_lookup = WeatherLookup.new(params[:zip])
   end
 
   # def show_weather

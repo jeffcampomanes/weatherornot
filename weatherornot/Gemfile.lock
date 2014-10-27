@@ -27,6 +27,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    area (0.10.0)
+      fastercsv (~> 1.5)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
     bootstrap-sass (3.2.0.2)
@@ -44,6 +46,7 @@ GEM
     execjs (2.2.2)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
+    fastercsv (1.5.5)
     forecast_io (2.0.0)
       faraday
       hashie
@@ -138,6 +141,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  area
   bcrypt
   bootstrap-sass (~> 3.2.0.2)
   coffee-rails (~> 4.0.0)
