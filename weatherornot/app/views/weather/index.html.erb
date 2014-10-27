@@ -18,9 +18,20 @@
 
 <br>
 
-<!-- make this search via zip code -->
-	<input name="text" placeholder="Zip Code">
-	<button> Search </button> 
-	
+<!-- search by zip code -->
+<form action="/forecast" method="GET">
+	<label>
+		Zip:
+		<input type="text" id="zipcode_search" placeholder="(e.g. : 101075, 07003, etc)" name="zip" />
+	</label>
+	<button id="submit">Submit</button>
+</form>
+
+<!-- weather content goes into empty div -->
+<div id="weather">
+
+</div>
+
+
 </body>
 </html>
