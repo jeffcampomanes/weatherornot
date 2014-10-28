@@ -1,12 +1,12 @@
 class WeatherLookup
-	attr_accessor :temperature, :icon, :weekday_name, :chance_of_rain, :chance_of_snow, :uvi, :tomorrow, :tomorrow_condition, :day_one, :day_one_condition, :day_two, :day_two_condition, :day_three, :day_three_condition, :day_four, :day_four_condition, :day_five, :day_five_condition, :day_six, :day_six_condition, :day_seven, :day_seven_condition
+  attr_accessor :temperature, :icon, :weekday_name, :chance_of_rain, :chance_of_snow, :uvi, :tomorrow, :tomorrow_condition, :day_one, :day_one_condition, :day_two, :day_two_condition, :day_three, :day_three_condition, :day_four, :day_four_condition, :day_five, :day_five_condition, :day_six, :day_six_condition, :day_seven, :day_seven_condition
 
-	def initialize(zip)
+  def initialize(zip)
     @zip = zip
     @city = zip.to_region(city: true)
     @state = zip.to_region(state: true)
 
-  	hourly_weather_hash = fetch_hourly_weather
+    hourly_weather_hash = fetch_hourly_weather
     hourly_temperature(hourly_weather_hash)
 
     tomorrow_weather_hash = fetch_tomorrow_weather
@@ -14,7 +14,7 @@ class WeatherLookup
 
     week_weather_hash = fetch_week_forecast
     week_forecast(week_weather_hash)
-	end
+  end
 
   def city
     return @city
@@ -25,11 +25,11 @@ class WeatherLookup
   end
 
 # 50ac24601e2af77e
-	def fetch_hourly_weather
+  def fetch_hourly_weather
     HTTParty.get("http://api.wunderground.com/api/50ac24601e2af77e/hourly/q/#{@zip}.xml")
-	end
+  end
 
-	def hourly_temperature(hourly_weather_hash)
+  def hourly_temperature(hourly_weather_hash)
     hourly_forecast_response = hourly_weather_hash.parsed_response['response']['hourly_forecast']['forecast'].first
     self.temperature = hourly_forecast_response['temp']['english']
     self.icon = hourly_forecast_response['icon_url']
@@ -38,7 +38,7 @@ class WeatherLookup
     self.chance_of_rain = hourly_forecast_response['pop'] 
     self.chance_of_snow = hourly_forecast_response['snow']['english'] 
     self.uvi = hourly_forecast_response['uvi']   
- 	end
+  end
 
   def fetch_tomorrow_weather
     HTTParty.get("http://api.wunderground.com/api/50ac24601e2af77e/forecast/q/#{state}/#{city.tr(' ', '_')}.xml")

@@ -12,14 +12,13 @@ Current:
 <!-- testing logic for clothes according for todays weather -->
 	
 	<!-- temperature -->	
-	<% if @weather_lookup.temperature >= "80" %>
+	<% if @weather_lookup.temperature.between?("70", "90") %>
 			<p> T SHIRT AND SHORTS OR JEANS </p>
-	<% elsif @weather_lookup.temperature.between?("40", "69").to_s %>
+	<% elsif @weather_lookup.temperature.between?("40", "69") %>
 			<p> PUT ON A LIGHT JACKET OR SWEATER </p>
 	<% else  @weather_lookup.temperature <= "35" %>
 			<p> PUT ON A WINTER JACKET WITH GLOVES, A SCARF, AND A HAT</p>
 	<% end %>
-
 	
 	<!-- rain -->
 	<% if @weather_lookup.chance_of_rain >= "50" %>
@@ -58,9 +57,9 @@ Tomorrow:
 <!-- logic for clothes according for tomorrows weather -->
 	
 	<!-- temperature -->	
-	<% if @weather_lookup.temperature >= "80" %>
+	<% if @weather_lookup.temperature.between?("70", "90") %>
 			<p> T SHIRT AND SHORTS OR JEANS </p>
-	<% elsif @weather_lookup.temperature.between?("40", "69").to_s %>
+	<% elsif @weather_lookup.temperature.between?("40", "69") %>
 			<p> PUT ON A LIGHT JACKET OR SWEATER </p>
 	<% else  @weather_lookup.temperature <= "35" %>
 			<p> PUT ON A WINTER JACKET WITH GLOVES, A SCARF, AND A HAT</p>
