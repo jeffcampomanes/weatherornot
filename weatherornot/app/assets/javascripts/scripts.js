@@ -25,7 +25,6 @@ var search_button = $('#search')
 
 			ul_weather.empty();	
 			ul_weather.append(weather_data)
-			// 	debugger			
 		})
 	})
 };
@@ -46,7 +45,6 @@ function signed_out_get_weather(){
 
 			var ul_weather_1 = $('#weather_1');
 
-			// for (i=0; i < weather_data.length; i++) {
 				ul_weather_1.empty();	
 				ul_weather_1.append(weather_data_1)
 			// 	debugger			
@@ -54,9 +52,6 @@ function signed_out_get_weather(){
 		})
 	})
 };
-
-
-
 
 
 

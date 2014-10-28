@@ -1,5 +1,5 @@
 class WeatherLookup
-	attr_accessor :temperature, :icon, :weekday_name, :tomorrow, :tomorrow_condition, :day_one, :day_one_condition, :day_two, :day_two_condition, :day_three, :day_three_condition, :day_four, :day_four_condition, :day_five, :day_five_condition, :day_six, :day_six_condition, :day_seven, :day_seven_condition
+	attr_accessor :temperature, :icon, :weekday_name, :chance_of_rain, :tomorrow, :tomorrow_condition, :day_one, :day_one_condition, :day_two, :day_two_condition, :day_three, :day_three_condition, :day_four, :day_four_condition, :day_five, :day_five_condition, :day_six, :day_six_condition, :day_seven, :day_seven_condition
 
 	def initialize(zip)
     @zip = zip
@@ -24,8 +24,9 @@ class WeatherLookup
     return @state
   end
 
+# 50ac24601e2af77e
 	def fetch_hourly_weather
-    HTTParty.get("http://api.wunderground.com/api/be8f986fd83540b9/hourly/q/#{@zip}.xml")
+    HTTParty.get("http://api.wunderground.com/api/50ac24601e2af77e/hourly/q/#{@zip}.xml")
 	end
 
 	def hourly_temperature(hourly_weather_hash)
@@ -33,10 +34,11 @@ class WeatherLookup
     self.temperature = hourly_forecast_response['temp']['english']
     self.icon = hourly_forecast_response['icon_url']
     self.weekday_name = hourly_forecast_response['FCTTIME']['pretty']
+    self.chance_of_rain = hourly_forecast_response['pop']
  	end
 
   def fetch_tomorrow_weather
-    HTTParty.get("http://api.wunderground.com/api/be8f986fd83540b9/forecast/q/#{state}/#{city.tr(' ', '_')}.xml")
+    HTTParty.get("http://api.wunderground.com/api/50ac24601e2af77e/forecast/q/#{state}/#{city.tr(' ', '_')}.xml")
   end
 
   def tomorrow_forecast(tomorrow_weather_hash)
@@ -46,7 +48,7 @@ class WeatherLookup
   end
 
   def fetch_week_forecast
-    HTTParty.get("http://api.wunderground.com/api/be8f986fd83540b9/forecast10day/q/#{state}/#{city.tr(' ', '_')}.xml")  
+    HTTParty.get("http://api.wunderground.com/api/50ac24601e2af77e/forecast10day/q/#{state}/#{city.tr(' ', '_')}.xml")  
   end
 
   def week_forecast(week_weather_hash)

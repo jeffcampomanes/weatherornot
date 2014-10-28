@@ -4,7 +4,22 @@ Current:
 	It is <%= @weather_lookup.temperature %> degrees in <%= @weather_lookup.city %>, <%= @weather_lookup.state %>!
 	<%= image_tag @weather_lookup.icon %>
 	<%=  @weather_lookup.weekday_name %>
+	Rain? <% @weather_lookup.chance_of_rain %> 
 
+<!-- logic for clothes according to weather -->
+	<% if @weather_lookup.temperature < "40" %>
+		<p> put on a jacket </p>
+	<% else %>
+		<p> TEST </p>
+	<% end %>
+
+	<% if @weather_lookup.chance_of_rain = "0" %>
+		<p> BRING A FUCKING UMBRELLA </p>
+	<% else %>
+		<p> No Umbrella needed </p>
+	<% end %>
+
+<!--   -->
 <br>
 <br>
 
@@ -13,6 +28,13 @@ Tomorrow:
 <br>
 	<%= @weather_lookup.tomorrow %> <br>
 	<%= @weather_lookup.tomorrow_condition %>
+
+<!-- logic for clothes according to weather -->
+	<% if @weather_lookup.tomorrow < "40" %>
+		<p> put on a jacket </p>
+	<% else %>
+		<p> TEST </p>
+	<% end %>
 
 <br>
 <br>
