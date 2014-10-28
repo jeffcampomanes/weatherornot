@@ -1,73 +1,95 @@
 <!-- shows current weather -->
 Current:
 <br>
-	It is <%= @weather_lookup.temperature %> degrees in <%= @weather_lookup.city %>, <%= @weather_lookup.state %>!
-	<%= image_tag @weather_lookup.icon %>
-	<%=  @weather_lookup.weekday_name %>
-	Rain? <% @weather_lookup.chance_of_rain %> 
+	Location: <%= @weather_lookup.city %>, <%= @weather_lookup.state %> <%= image_tag @weather_lookup.icon %> <br>
+	On the hour: <%=@weather_lookup.weekday_name %> <br>
+	It is currenty: <%= @weather_lookup.temperature %>F! <br>
+	Chance of rain: <%= @weather_lookup.chance_of_rain %>%
 
-<!-- testing logic for clothes according to weather -->
-	<% if @weather_lookup.temperature < "40" %>
-		<p> put on a jacket </p>
-	<% else %>
-		<p> TEST </p>
-	<% end %>
-
-	<% if @weather_lookup.chance_of_rain = "0" %>
-		<p> BRING A FUCKING UMBRELLA </p>
-	<% else %>
-		<p> No Umbrella needed </p>
-	<% end %>
-
-	<% if @weather_lookup.uvi = "0" %>
-		<p> WEARING FUCKING SUNGLASSES</p>
-	<% else %>
-		<p> No sunglasses needed </p>
-	<% end %>
-
-	<% if @weather_lookup.chance_of_rain = "0" %>
-		<p> IT'S GON SNOW</p>
-	<% else %>
-		<p> No snow </p>
-	<% end %>	
-
-<!--   -->
 <br>
 <br>
+
+<!-- testing logic for clothes according for todays weather -->
+	
+	<!-- temperature -->	
+	<% if @weather_lookup.temperature >= "80" %>
+			<p> T SHIRT AND SHORTS OR JEANS </p>
+	<% elsif @weather_lookup.temperature.between?("40", "69").to_s %>
+			<p> PUT ON A LIGHT JACKET OR SWEATER </p>
+	<% else  @weather_lookup.temperature <= "35" %>
+			<p> PUT ON A WINTER JACKET WITH GLOVES, A SCARF, AND A HAT</p>
+	<% end %>
+
+	
+	<!-- rain -->
+	<% if @weather_lookup.chance_of_rain >= "50" %>
+			<p> BRING A FUCKING UMBRELLA </p>
+			<p> CONSIDER RAINBOOTS </p>
+	<% else %>
+	<% end %>
+	
+	<!-- UVI -->
+	<% if @weather_lookup.uvi >= "1.0" %>
+			<p> WEAR FUCKING SUNGLASSES </p>
+	<% elsif @weather_lookup.uvi >= "5.5" %>
+			<p> PUT ON SOME FUCKING SUN SCREEN </p>
+	<% else %>
+	<% end %>
+
+	<!-- snow -->
+	<% if @weather_lookup.chance_of_snow >= "50" %>
+			<p> ITS GONNA FUCKING SNOW </p>
+	<% else %>
+	<% end %>		
+
+
+<br>
+<br>
+
 
 <!-- tomorrow's weather -->
 Tomorrow:
 <br>
 	<%= @weather_lookup.tomorrow %> <br>
-	<%= @weather_lookup.tomorrow_condition %>
+	<%= @weather_lookup.tomorrow_condition %> <br>
+	Chance of rain: <%= @weather_lookup.chance_of_rain %>% <br>
 
-<!-- logic for clothes according to weather -->
-	<% if @weather_lookup.temperature < "40" %>
-		<p> put on a jacket </p>
-	<% else %>
-		<p> TEST </p>
+
+<!-- logic for clothes according for tomorrows weather -->
+	
+	<!-- temperature -->	
+	<% if @weather_lookup.temperature >= "80" %>
+			<p> T SHIRT AND SHORTS OR JEANS </p>
+	<% elsif @weather_lookup.temperature.between?("40", "69").to_s %>
+			<p> PUT ON A LIGHT JACKET OR SWEATER </p>
+	<% else  @weather_lookup.temperature <= "35" %>
+			<p> PUT ON A WINTER JACKET WITH GLOVES, A SCARF, AND A HAT</p>
 	<% end %>
 
-	<% if @weather_lookup.chance_of_rain = "0" %>
+	<!-- rain -->
+	<% if @weather_lookup.chance_of_rain >= "50" %>
 		<p> BRING A FUCKING UMBRELLA </p>
 	<% else %>
-		<p> No Umbrella needed </p>
+	<% end %>
+	
+	<!-- UVI -->
+	<% if @weather_lookup.uvi >= "1.0" %>
+		<p> WEAR FUCKING SUNGLASSES </p>
+	<% elsif @weather_lookup.uvi >= "5.5" %>
+		<p> PUT ON SOME FUCKING SUN SCREEN </p>
+	<% else %>
 	<% end %>
 
-	<% if @weather_lookup.uvi = "0" %>
-		<p> WEARING FUCKING SUNGLASSES</p>
+	<!-- snow -->
+	<% if @weather_lookup.chance_of_snow >= "50" %>
+		<p> ITS GONNA FUCKING SNOW </p>
 	<% else %>
-		<p> No sunglasses needed </p>
-	<% end %>
-
-	<% if @weather_lookup.chance_of_rain = "0" %>
-		<p> IT'S GON SNOW</p>
-	<% else %>
-		<p> No snow </p>
 	<% end %>	
+
 <br>
 <br>
 
+Week:
 <!-- week -->
 <br>
 	<%=@weather_lookup.day_one %> : <%= @weather_lookup.day_one_condition %>
@@ -83,6 +105,3 @@ Tomorrow:
 	<%=@weather_lookup.day_six %> : <%= @weather_lookup.day_six_condition %>
 <br>
 	<%=@weather_lookup.day_seven %> : <%= @weather_lookup.day_seven_condition %>
-
-<br>
-<br>
