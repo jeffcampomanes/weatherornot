@@ -48,13 +48,9 @@ function signed_out_get_weather(){
 				ul_weather_1.empty();	
 				ul_weather_1.append(weather_data_1)
 			// 	debugger			
-			// }
 		})
 	})
 };
-
-
-
 
 ////////end////////
 });

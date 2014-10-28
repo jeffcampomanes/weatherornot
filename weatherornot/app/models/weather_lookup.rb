@@ -1,5 +1,5 @@
 class WeatherLookup
-  attr_accessor :temperature, :icon, :weekday_name, :chance_of_rain, :chance_of_snow, :uvi, :tomorrow, :tomorrow_condition, :day_one, :day_one_condition, :day_one_high, :day_one_low, :day_two, :day_two_condition, :day_two_high, :day_two_low, :day_three, :day_three_condition, :day_three_high, :day_three_low, :day_four, :day_four_condition, :day_four_high, :day_four_low, :day_five, :day_five_condition, :day_five_high, :day_five_low, :day_six, :day_six_condition, :day_six_high, :day_six_low, :day_seven, :day_seven_condition, :day_seven_high, :day_seven_low
+  attr_accessor :temperature, :icon, :weekday_name, :chance_of_rain, :chance_of_snow, :uvi, :tomorrow, :tomorrow_condition, :tomorrow_icon, :day_one, :day_one_condition, :day_one_high, :day_one_low, :day_two, :day_two_condition, :day_two_high, :day_two_low, :day_three, :day_three_condition, :day_three_high, :day_three_low, :day_four, :day_four_condition, :day_four_high, :day_four_low, :day_five, :day_five_condition, :day_five_high, :day_five_low, :day_six, :day_six_condition, :day_six_high, :day_six_low, :day_seven, :day_seven_condition, :day_seven_high, :day_seven_low
 
   def initialize(zip)
     @zip = zip
@@ -30,6 +30,7 @@ class WeatherLookup
   end
 
   def hourly_temperature(hourly_weather_hash)
+    # binding.pry
     hourly_forecast_response = hourly_weather_hash.parsed_response['response']['hourly_forecast']['forecast'].first
     self.temperature = hourly_forecast_response['temp']['english']
     self.icon = hourly_forecast_response['icon_url']
@@ -48,6 +49,7 @@ class WeatherLookup
     tomorrow_forecast_response = tomorrow_weather_hash.parsed_response['response']['forecast']['txt_forecast']['forecastdays']
     self.tomorrow = tomorrow_forecast_response['forecastday'][2]['title']
     self.tomorrow_condition = tomorrow_forecast_response['forecastday'][2]['fcttext']
+    self.tomorrow_icon = tomorrow_forecast_response['forecastday'][2]['icon_url'] 
   end
 
   def fetch_week_forecast
