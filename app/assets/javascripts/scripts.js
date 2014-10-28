@@ -15,7 +15,7 @@ var search_button = $('#search')
 	
 	$.ajax({
 		type:"GET",
-		url:"http://localhost:3000/weather?zip=" + $('#zipcode').val()
+		url:"//localhost:3000/weather?zip=" + $('#zipcode').val()
 		}).done(function(data){
 
 			var weather_data = data;
@@ -37,7 +37,7 @@ function signed_out_get_weather(){
 	
 	$.ajax({
 		type:"GET",
-		url:"http://localhost:3000/weather?zip=" + $('#zipcode_1').val()
+		url:"//localhost:3000/weather?zip=" + $('#zipcode_1').val()
 		}).done(function(data){
 
 			var weather_data_1 = data;
