@@ -6,6 +6,41 @@ Current:
 	<%=  @weather_lookup.weekday_name %>
 	Rain? <% @weather_lookup.chance_of_rain %> 
 
+<!-- testing logic for clothes according to weather -->
+	<% if @weather_lookup.temperature < "40" %>
+		<p> put on a jacket </p>
+	<% else %>
+		<p> TEST </p>
+	<% end %>
+
+	<% if @weather_lookup.chance_of_rain = "0" %>
+		<p> BRING A FUCKING UMBRELLA </p>
+	<% else %>
+		<p> No Umbrella needed </p>
+	<% end %>
+
+	<% if @weather_lookup.uvi = "0" %>
+		<p> WEARING FUCKING SUNGLASSES</p>
+	<% else %>
+		<p> No sunglasses needed </p>
+	<% end %>
+
+	<% if @weather_lookup.chance_of_rain = "0" %>
+		<p> IT'S GON SNOW</p>
+	<% else %>
+		<p> No snow </p>
+	<% end %>	
+
+<!--   -->
+<br>
+<br>
+
+<!-- tomorrow's weather -->
+Tomorrow:
+<br>
+	<%= @weather_lookup.tomorrow %> <br>
+	<%= @weather_lookup.tomorrow_condition %>
+
 <!-- logic for clothes according to weather -->
 	<% if @weather_lookup.temperature < "40" %>
 		<p> put on a jacket </p>
@@ -19,23 +54,17 @@ Current:
 		<p> No Umbrella needed </p>
 	<% end %>
 
-<!--   -->
-<br>
-<br>
-
-<!-- tomorrow's weather -->
-Tomorrow:
-<br>
-	<%= @weather_lookup.tomorrow %> <br>
-	<%= @weather_lookup.tomorrow_condition %>
-
-<!-- logic for clothes according to weather -->
-	<% if @weather_lookup.tomorrow < "40" %>
-		<p> put on a jacket </p>
+	<% if @weather_lookup.uvi = "0" %>
+		<p> WEARING FUCKING SUNGLASSES</p>
 	<% else %>
-		<p> TEST </p>
+		<p> No sunglasses needed </p>
 	<% end %>
 
+	<% if @weather_lookup.chance_of_rain = "0" %>
+		<p> IT'S GON SNOW</p>
+	<% else %>
+		<p> No snow </p>
+	<% end %>	
 <br>
 <br>
 

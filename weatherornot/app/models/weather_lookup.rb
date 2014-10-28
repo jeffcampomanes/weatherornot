@@ -1,5 +1,5 @@
 class WeatherLookup
-	attr_accessor :temperature, :icon, :weekday_name, :chance_of_rain, :tomorrow, :tomorrow_condition, :day_one, :day_one_condition, :day_two, :day_two_condition, :day_three, :day_three_condition, :day_four, :day_four_condition, :day_five, :day_five_condition, :day_six, :day_six_condition, :day_seven, :day_seven_condition
+	attr_accessor :temperature, :icon, :weekday_name, :chance_of_rain, :chance_of_snow, :uvi, :tomorrow, :tomorrow_condition, :day_one, :day_one_condition, :day_two, :day_two_condition, :day_three, :day_three_condition, :day_four, :day_four_condition, :day_five, :day_five_condition, :day_six, :day_six_condition, :day_seven, :day_seven_condition
 
 	def initialize(zip)
     @zip = zip
@@ -34,7 +34,10 @@ class WeatherLookup
     self.temperature = hourly_forecast_response['temp']['english']
     self.icon = hourly_forecast_response['icon_url']
     self.weekday_name = hourly_forecast_response['FCTTIME']['pretty']
-    self.chance_of_rain = hourly_forecast_response['pop']
+    
+    self.chance_of_rain = hourly_forecast_response['pop'] 
+    self.chance_of_snow = hourly_forecast_response['snow']['english'] 
+    self.uvi = hourly_forecast_response['uvi']   
  	end
 
   def fetch_tomorrow_weather
