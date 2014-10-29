@@ -19,6 +19,8 @@ class WeatherController < ApplicationController
 
   def show
     @weather_lookup = WeatherLookup.new(params[:zip])
+
+    render :show, layout: false
   end
 
   # def show_weather

@@ -1,0 +1,158 @@
+<div class="container">
+
+<!-- shows current weather -->
+	<div id="row_current_weather">
+		<section class="col-md-4">
+			<h3 class="center-text">Current:</h3>
+				<br>
+					
+				Location: <%= @weather_lookup.city %>, <%= @weather_lookup.state %> <%= image_tag @weather_lookup.icon %> <br>
+				On the hour: <%=@weather_lookup.weekday_name %> <br>
+				High/Low: <%=@weather_lookup.day_one_high %>F : <%= @weather_lookup.day_one_low %>F 
+					
+				<br>
+					
+				It is currenty: <%= @weather_lookup.temperature %>F <br>
+				Chance of rain: <%= @weather_lookup.chance_of_rain %>% <br>
+		</section>
+	</div>
+
+<!-- testing logic for clothes according for todays weather -->
+		<!-- temperature -->	
+		
+	<div id="row_current_conditions">
+		<section class="col-md-6 col-md-offset-4">
+				<br>	
+				<% if @weather_lookup.temperature.between?("70", "90") %>
+						<p> PUT ON A FUCKIN T SHIRT AND SHORTS OR JEANS </p>
+				<% elsif @weather_lookup.temperature.between?("40", "69") %>
+						<p> PUT ON A FUCKING LIGHT JACKET OR SWEATER </p>
+				<% else  @weather_lookup.temperature <= "35" %>
+						<p> PUT ON A FUCKING WINTER JACKET WITH GLOVES, A SCARF, AND A HAT</p>
+				<% end %>
+				
+			<!-- rain -->
+				<% if @weather_lookup.chance_of_rain >= "45" %>
+						<p> BRING A FUCKING UMBRELLA </p>
+				<% else %>
+				<% end %>
+			
+			<!-- UVI -->
+				<% if @weather_lookup.uvi >= "1.0" %>
+						<p> WEAR FUCKING SUNGLASSES </p>
+				<% elsif @weather_lookup.uvi >= "5.5" %>
+						<p> PUT ON SOME FUCKING SUN SCREEN </p>
+				<% else %>
+				<% end %>
+
+			<!-- snow -->
+				<% if @weather_lookup.chance_of_snow >= "50" %>
+						<p> ITS GONNA FUCKING SNOW </p>
+				<% else %>
+				<% end %>	
+		</section>
+	</div>
+
+<br>
+<br>
+<br>
+<br>
+
+
+	<div id="row_tomorrow_weather">
+		<section class="col-md-4">
+			<h3 class="center-text">Tomorrow:</h3>
+				<br>
+					<%= @weather_lookup.tomorrow %> <%= image_tag @weather_lookup.tomorrow_icon %> <br>
+					<%= @weather_lookup.tomorrow_condition %> <br>
+					Chance of rain: <%= @weather_lookup.chance_of_rain %>% <br>
+					High/Low: <%=@weather_lookup.day_two_high %>F : <%= @weather_lookup.day_two_low %>F 
+		</section>
+	</div>
+
+		<!-- logic for clothes according for tomorrows weather -->
+		<!-- temperature -->	
+
+		<div id="row_current_conditions">
+			<section class="col-md-6 col-md-offset-4">
+				<br>
+				<% if @weather_lookup.temperature.between?("70", "90") %>
+						<p> T SHIRT AND SHORTS OR JEANS </p>
+				<% elsif @weather_lookup.temperature.between?("40", "69") %>
+						<p> PUT ON A FUCKING LIGHT JACKET OR SWEATER </p>
+				<% else  @weather_lookup.temperature <= "35" %>
+						<p> PUT ON A FUCKING WINTER JACKET WITH GLOVES, A SCARF, AND A HAT</p>
+				<% end %>
+
+				<!-- rain -->
+				<% if @weather_lookup.chance_of_rain >= "45" %>
+						<p> BRING A FUCKING UMBRELLA </p>
+				<% else %>
+				<% end %>
+				
+				<!-- UVI -->
+				<% if @weather_lookup.uvi >= "1.0" %>
+						<p> WEAR FUCKING SUNGLASSES </p>
+				<% elsif @weather_lookup.uvi >= "5.5" %>
+						<p> PUT ON SOME FUCKING SUN SCREEN </p>
+				<% else %>
+				<% end %>
+
+				<!-- snow -->
+				<% if @weather_lookup.chance_of_snow >= "50" %>
+						<p> ITS GONNA FUCKING SNOW </p>
+				<% else %>
+				<% end %>	
+			</section>
+		</div>
+
+<br>
+<br>
+<br>
+<br>
+
+	<div id="row_tomorrow_weather">
+		<section class="col-md-9 col-md-offset-1">
+			<h3 class="center-text">7 Day Forecast:</h3>
+			<br>
+		<!-- week -->
+			<br>
+				<%=@weather_lookup.day_one %> : <%= @weather_lookup.day_one_condition %> 
+			<br>
+				High/Low: <%=@weather_lookup.day_one_high %>F : <%= @weather_lookup.day_one_low %>F 
+		
+			<br>
+				<%=@weather_lookup.day_two %> : <%= @weather_lookup.day_two_condition %>
+			<br>
+				High/Low: <%=@weather_lookup.day_two_high %>F : <%= @weather_lookup.day_two_low %>F 
+			
+			<br>
+				<%=@weather_lookup.day_three %> : <%= @weather_lookup.day_three_condition %>
+			<br>
+				High/Low: <%=@weather_lookup.day_three_high %>F : <%= @weather_lookup.day_three_low %>F 
+
+			<br>
+				<%=@weather_lookup.day_four %> : <%= @weather_lookup.day_four_condition %>
+			<br>
+				High/Low: <%=@weather_lookup.day_four_high %>F : <%= @weather_lookup.day_four_low %>F 
+
+			<br>
+				<%=@weather_lookup.day_five %> : <%= @weather_lookup.day_five_condition %>
+			<br>
+				High/Low: <%=@weather_lookup.day_five_high %>F : <%= @weather_lookup.day_five_low %>F 
+
+			<br>
+				<%=@weather_lookup.day_six %> : <%= @weather_lookup.day_six_condition %>
+			<br>
+				High/Low: <%=@weather_lookup.day_six_high %>F : <%= @weather_lookup.day_six_low %>F 
+
+			<br>
+				<%=@weather_lookup.day_seven %> : <%= @weather_lookup.day_seven_condition %>
+			<br>
+				High/Low: <%=@weather_lookup.day_seven_high %>F : <%= @weather_lookup.day_seven_low %>F 
+		</section>
+	</div>
+
+
+<!-- end of container -->
+</div>
