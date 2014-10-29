@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<h2>weatherornot</h2>
 </head>
 <body>
-	
-	<h2>Weather or Not</h2>
+	<a href="/register"> Sign Up </a>
+	<br>
+	<br>
 	<% if @error %>
 		<p style='color: red;'>Incorrect email/password</p>
 	<%end%>
@@ -17,11 +18,6 @@
 		<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden"> <br>
 		<button> Submit </button>
 	</form>
-	<br>
-	<br>
-	<br>
-	<a href="/register"> Sign Up </a>
-
 	
 </body>
 </html>

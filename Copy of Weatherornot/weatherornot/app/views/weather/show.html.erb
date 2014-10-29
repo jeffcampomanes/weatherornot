@@ -25,7 +25,7 @@
 		<!-- temperature -->	
 		
 	<div id="row_current_conditions">
-		<section class="col-md-4">
+		<section class="col-xs-6">
 				<br>	
 				<% if @weather_lookup.temperature.between?("70", "90") %>
 						<p> PUT ON A FUCKIN T SHIRT AND SHORTS OR JEANS </p>
@@ -92,7 +92,7 @@
 		<!-- temperature -->	
 
 		<div id="row_current_conditions">
-		<section class="col-md-4">
+		<section class="col-xs-6">
 				<br>
 				<% if @weather_lookup.temperature.between?("70", "90") %>
 						<p> T SHIRT AND SHORTS OR JEANS </p>
@@ -147,7 +147,7 @@
 		<div id="row_tomorrow_weather">
 		<section class="col-md-12">
 			<br>
-				<b> <%=@weather_lookup.day_one %>: </b> <br>
+				<b> <%=@weather_lookup.day_one %>: </b>  <%= image_tag @weather_lookup.day_one_icon %> <br>
 				
 				<%= @weather_lookup.day_one_condition %> <br>
 				<b>High:</b> <%=@weather_lookup.day_one_high %>F<br> 
@@ -156,7 +156,7 @@
 				<br>
 				<br>
 		
-				<b> <%=@weather_lookup.day_two %>:</b> <br>
+				<b> <%=@weather_lookup.day_two %>:</b> <%= image_tag @weather_lookup.day_two_icon %><br>
 				
 				<%= @weather_lookup.day_two_condition %> <br>		
 				<b>High:</b>  <%=@weather_lookup.day_two_high %>F <br>
@@ -165,7 +165,7 @@
 				<br>
 				<br>
 
-				<b> <%=@weather_lookup.day_three %>:</b> <br>
+				<b> <%=@weather_lookup.day_three %>:</b><%= image_tag @weather_lookup.day_three_icon %> <br>
 				
 				<%= @weather_lookup.day_three_condition %> <br>
 				<b>High: </b>  <%=@weather_lookup.day_three_high %>F <br>
@@ -174,7 +174,7 @@
 				<br>
 				<br>
 		
-				<b> <%=@weather_lookup.day_four %>:</b> <br>
+				<b> <%=@weather_lookup.day_four %>:</b><%= image_tag @weather_lookup.day_four_icon %> <br>
 				
 				<%= @weather_lookup.day_four_condition %> <br>
 				<b>High: </b> <%=@weather_lookup.day_four_high %>F <br>
@@ -184,7 +184,7 @@
 				<br>
 			
 		
-				<b> <%=@weather_lookup.day_five %>:</b> 	<br>
+				<b> <%=@weather_lookup.day_five %>:</b> <%= image_tag @weather_lookup.day_five_icon %>	<br>
 				
 				<%= @weather_lookup.day_five_condition %>	<br>
 				<b>High: </b> <%=@weather_lookup.day_five_high %>F <br>
@@ -193,7 +193,8 @@
 				<br>
 				<br>
 
-				<b> <%=@weather_lookup.day_six %> :</b>	<br>
+				<b> <%=@weather_lookup.day_six %> :</b>	<%= image_tag @weather_lookup.day_six_icon %><br>
+
 				<%= @weather_lookup.day_six_condition %>	<br>
 				<b>High: </b> <%=@weather_lookup.day_six_high %>F <br>
 				<b>Low: </b>  <%= @weather_lookup.day_six_low %>F <br>
@@ -201,7 +202,7 @@
 				<br>
 				<br>
 
-				<b> <%=@weather_lookup.day_seven %>: </b>	<br>
+				<b> <%=@weather_lookup.day_seven %>: </b>	<%= image_tag @weather_lookup.day_seven_icon %><br>
 				
 				<%= @weather_lookup.day_seven_condition %>	<br>
 				<b>High:</b> <%=@weather_lookup.day_seven_high %>F <br>
