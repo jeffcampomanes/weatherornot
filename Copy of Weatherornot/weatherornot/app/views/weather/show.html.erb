@@ -1,19 +1,23 @@
 <div class="container">
-
-<!-- shows current weather -->
-	<div id="row_current_weather">
+	<div class="row_top_title">
+	<div id="top_title">
 		<section class="col-md-4">
-			<h3 class="center-text">Current:</h3>
+		<h3 class="center-text">Current:</h3> <%= @weather_lookup.city %>, <%= @weather_lookup.state %> <%= image_tag @weather_lookup.icon %> 
+		</div>
+	</div>
+</div>
+
+
+<div class="container">
+	<div class= "row_top">
+		<div id="row_current_weather">
+		<section class="col-md-6">
 				<br>
-					
-				Location: <%= @weather_lookup.city %>, <%= @weather_lookup.state %> <%= image_tag @weather_lookup.icon %> <br>
-				On the hour: <%=@weather_lookup.weekday_name %> <br>
-				High/Low: <%=@weather_lookup.day_one_high %>F : <%= @weather_lookup.day_one_low %>F 
-					
-				<br>
-					
-				It is currenty: <%= @weather_lookup.temperature %>F <br>
-				Chance of rain: <%= @weather_lookup.chance_of_rain %>% <br>
+				<b> On the hour: </b> <%=@weather_lookup.weekday_name %> <br>
+				<b> Current Temperature: </b><%= @weather_lookup.temperature %>F <br>
+				<b> High: </b><%=@weather_lookup.day_one_high %>F <br>
+				<b> Low: </b><%= @weather_lookup.day_one_low %>F <br>
+				<b> Chance of rain: </b><%= @weather_lookup.chance_of_rain %>% <br>
 		</section>
 	</div>
 
@@ -21,7 +25,7 @@
 		<!-- temperature -->	
 		
 	<div id="row_current_conditions">
-		<section class="col-md-6 col-md-offset-4">
+		<section class="col-md-4">
 				<br>	
 				<% if @weather_lookup.temperature.between?("70", "90") %>
 						<p> PUT ON A FUCKIN T SHIRT AND SHORTS OR JEANS </p>
@@ -51,7 +55,9 @@
 				<% else %>
 				<% end %>	
 		</section>
+		</div>
 	</div>
+</div>
 
 <br>
 <br>
@@ -59,14 +65,26 @@
 <br>
 
 
-	<div id="row_tomorrow_weather">
+<div class="container">
+	<div class="row_mid_title">
+	<div id="mid_title">
 		<section class="col-md-4">
 			<h3 class="center-text">Tomorrow:</h3>
+			<%= @weather_lookup.tomorrow %> <%= image_tag @weather_lookup.tomorrow_icon %> <br>
+		</div>
+	</div>
+</div>
+
+
+<div class ="container">
+	<div class="row_mid">
+		<div id="row_tomorrow_weather">
+		<section class="col-md-6">
 				<br>
-					<%= @weather_lookup.tomorrow %> <%= image_tag @weather_lookup.tomorrow_icon %> <br>
-					<%= @weather_lookup.tomorrow_condition %> <br>
+					<b> Condition: </b> <%= @weather_lookup.tomorrow_condition %> <br>
+					<b> High: </b>  <%=@weather_lookup.day_two_high %>F <br>
+					<b> Low: </b>: <%= @weather_lookup.day_two_low %>F <br>
 					Chance of rain: <%= @weather_lookup.chance_of_rain %>% <br>
-					High/Low: <%=@weather_lookup.day_two_high %>F : <%= @weather_lookup.day_two_low %>F 
 		</section>
 	</div>
 
@@ -74,7 +92,7 @@
 		<!-- temperature -->	
 
 		<div id="row_current_conditions">
-			<section class="col-md-6 col-md-offset-4">
+		<section class="col-md-4">
 				<br>
 				<% if @weather_lookup.temperature.between?("70", "90") %>
 						<p> T SHIRT AND SHORTS OR JEANS </p>
@@ -105,54 +123,91 @@
 				<% end %>	
 			</section>
 		</div>
+	</div>
+</div>
 
 <br>
 <br>
 <br>
 <br>
 
-	<div id="row_tomorrow_weather">
-		<section class="col-md-9 col-md-offset-1">
+
+
+<div class="container">
+	<div class="row_bottom_title">
+		<div id="bottom_title">
+			<section class="col-md-4">
 			<h3 class="center-text">7 Day Forecast:</h3>
+		</div>
+	</div>
+</div>
+
+<div class ="container">
+	<div class="row_bottom">
+		<div id="row_tomorrow_weather">
+		<section class="col-md-12">
 			<br>
-		<!-- week -->
-			<br>
-				<%=@weather_lookup.day_one %> : <%= @weather_lookup.day_one_condition %> 
-			<br>
-				High/Low: <%=@weather_lookup.day_one_high %>F : <%= @weather_lookup.day_one_low %>F 
+				<b> <%=@weather_lookup.day_one %>: </b> <br>
+				
+				<%= @weather_lookup.day_one_condition %> <br>
+				<b>High:</b> <%=@weather_lookup.day_one_high %>F<br> 
+				<b>Low:</b> <%= @weather_lookup.day_one_low %>F <br>
+				
+				<br>
+				<br>
 		
-			<br>
-				<%=@weather_lookup.day_two %> : <%= @weather_lookup.day_two_condition %>
-			<br>
-				High/Low: <%=@weather_lookup.day_two_high %>F : <%= @weather_lookup.day_two_low %>F 
+				<b> <%=@weather_lookup.day_two %>:</b> <br>
+				
+				<%= @weather_lookup.day_two_condition %> <br>		
+				<b>High:</b>  <%=@weather_lookup.day_two_high %>F <br>
+				<b>Low:</b> <%= @weather_lookup.day_two_low %>F <br>
 			
-			<br>
-				<%=@weather_lookup.day_three %> : <%= @weather_lookup.day_three_condition %>
-			<br>
-				High/Low: <%=@weather_lookup.day_three_high %>F : <%= @weather_lookup.day_three_low %>F 
+				<br>
+				<br>
 
-			<br>
-				<%=@weather_lookup.day_four %> : <%= @weather_lookup.day_four_condition %>
-			<br>
-				High/Low: <%=@weather_lookup.day_four_high %>F : <%= @weather_lookup.day_four_low %>F 
+				<b> <%=@weather_lookup.day_three %>:</b> <br>
+				
+				<%= @weather_lookup.day_three_condition %> <br>
+				<b>High: </b>  <%=@weather_lookup.day_three_high %>F <br>
+				<b>Low:</b> <%= @weather_lookup.day_three_low %>F <br>
 
-			<br>
-				<%=@weather_lookup.day_five %> : <%= @weather_lookup.day_five_condition %>
-			<br>
-				High/Low: <%=@weather_lookup.day_five_high %>F : <%= @weather_lookup.day_five_low %>F 
+				<br>
+				<br>
+		
+				<b> <%=@weather_lookup.day_four %>:</b> <br>
+				
+				<%= @weather_lookup.day_four_condition %> <br>
+				<b>High: </b> <%=@weather_lookup.day_four_high %>F <br>
+				<b>Low: </b>  <%= @weather_lookup.day_four_low %>F <br>
 
-			<br>
-				<%=@weather_lookup.day_six %> : <%= @weather_lookup.day_six_condition %>
-			<br>
-				High/Low: <%=@weather_lookup.day_six_high %>F : <%= @weather_lookup.day_six_low %>F 
+				<br>
+				<br>
+			
+		
+				<b> <%=@weather_lookup.day_five %>:</b> 	<br>
+				
+				<%= @weather_lookup.day_five_condition %>	<br>
+				<b>High: </b> <%=@weather_lookup.day_five_high %>F <br>
+				<b>Low: </b> <%= @weather_lookup.day_five_low %>F <br>
 
-			<br>
-				<%=@weather_lookup.day_seven %> : <%= @weather_lookup.day_seven_condition %>
-			<br>
-				High/Low: <%=@weather_lookup.day_seven_high %>F : <%= @weather_lookup.day_seven_low %>F 
+				<br>
+				<br>
+
+				<b> <%=@weather_lookup.day_six %> :</b>	<br>
+				<%= @weather_lookup.day_six_condition %>	<br>
+				<b>High: </b> <%=@weather_lookup.day_six_high %>F <br>
+				<b>Low: </b>  <%= @weather_lookup.day_six_low %>F <br>
+
+				<br>
+				<br>
+
+				<b> <%=@weather_lookup.day_seven %>: </b>	<br>
+				
+				<%= @weather_lookup.day_seven_condition %>	<br>
+				<b>High:</b> <%=@weather_lookup.day_seven_high %>F <br>
+				<b>Low:</b> <%= @weather_lookup.day_seven_low %>F <br>
 		</section>
 	</div>
+ </div>
+</div
 
-
-<!-- end of container -->
-</div>

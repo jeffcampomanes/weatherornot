@@ -14,7 +14,6 @@ class UsersController < ApplicationController
 			last_name: params[:last_name],
 			email: params[:email], 
 			password: params["password"],
-			gender: params["gender"]
 			)
 		if @user.save
 			redirect_to '/login'
