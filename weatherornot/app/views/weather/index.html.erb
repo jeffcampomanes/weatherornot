@@ -1,38 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Welcome</title>
+	<title> </title>
+
+<div class="container-fluid">
+	<div class="row">
+		<header>
+			<div class="col-md-4 col-xs-offset-4 center-text">
+				<a href="/"><h1 id="title">WEATHER<span id="title">ØR.</span>NOT</h1></a>
+			</div>
+			
+			<br>
+			
+			<div class="col-xs-2 col-xs-offset-2">
+			 Welcome <%= @user.first_name %> !
+			 <br>
+					<form method="POST" action="/session">
+						<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+						<input name="_method" value="DELETE" type="hidden">
+						<button>Logout</button>
+					</form>
+			</div>
+
+
+			<div class="col-md-6 col-md-offset-5 center-text">
+					<label>
+						Zip:
+						<input type="text" id="zipcode_1" class="zipcode_1" placeholder="(e.g. : 10175, 07003, etc)" name="zip" />
+					</label>
+							<i class="fa fa-search fa-2x" id="search_1" value="button"></i>
+			</div>
+			<br>
+		
+		</header>
+	</div>
+ </div>
+</div>
+
+<hr>
 
 </head>
 <body>
-
-<h2> Hello <%= @user.first_name %>, this is Weather or Not.</h2>
-
-
-<!-- logout -->
-	<form method="POST" action="/session">
-		<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
-		<input name="_method" value="DELETE" type="hidden">
-		<button>Logout</button>
-	</form>
-
-<br>
-
-<!-- search by zip code -->
-<!-- <form> -->	
-	<label>
-		Zip:
-		<input type="text" id="zipcode" class="zipcode" placeholder="(e.g. : 101075, 07003, etc)" name="zip" />
-	</label>
-	<button id="search">Search</button>
-<!-- </form> -->
-
-
-<!-- weather content goes into empty div -->
-<ul id="weather" class="weather">
-
-</ul>
+	
+<div id="customSpinner" class="customSpinner"> 
+</div>
 
 
 </body>

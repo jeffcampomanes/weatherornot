@@ -2,27 +2,43 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+
+<div class ="container">
+	<div class="login">
+		<section class="col-md-6 col-md-offset-4 center-text">
+			<a href="/"><h1 id="title">WEATHER<span id="title">ØR.</span>NOT</h1></a>
+		</section>
+	</div>
+</div>
+
+
+<div class ="container">
+	<div class="login">
+		<section class="col-md-6 col-md-offset-8 center-text">
+			<a href="/register"> Sign Up </a>
+				<% if @error %>
+				<p style='color: red;'>Incorrect email/password</p>
+			<%end%>
+		</section>
+	</div>
+</div>
+
 </head>
 <body>
-	
-	<h2>Weather or Not</h2>
-	<% if @error %>
-		<p style='color: red;'>Incorrect email/password</p>
-	<%end%>
 
-	<form action="/session" method="POST">
-		<input type="text" name="email" placeholder="Email"> <br>
-		<input type="password" name="password" placeholder="Password"><br>
-		<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden"> <br>
-		<button> Submit </button>
-	</form>
-	<br>
-	<br>
-	<br>
-	<a href="/register"> Sign Up </a>
+<div class ="container">
+	<div class="login">
+		<section class="col-md-6 col-md-offset-5 center-text">
+			<form action="/session" method="POST">
+				<input type="text" name="email" placeholder="Email"> <br>
+				<input type="password" name="password" placeholder="Password"><br>
+				<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden"> <br>
+				<button> Submit </button>
+			</form>
+		</section>
+	</div>
+</div>
 
-	
 </body>
 </html>
 

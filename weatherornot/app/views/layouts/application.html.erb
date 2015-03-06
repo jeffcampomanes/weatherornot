@@ -1,23 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>weather or not</title>
+  <title>WEATHERØR.NOT</title>
+
+  <%= favicon_link_tag 'favicon.ico' %>
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
-	<link rel="stylesheet" href="https://fgnass.github.io/spin.js/spin.min.js">	
-	<link rel="stylesheet" href="https://bootswatch.com/cerulean/bootstrap.min.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://fgnass.github.io/spin.js/spin.min.js"> 
+  <link rel="stylesheet" href="//bootswatch.com/cerulean/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 
 </head>
 <body>
 
-<div class="container">
+<!-- <div class="container">
 
-</div>
+</div> -->
 <%= yield %>
+ 
+
+<nav id="navbar" class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+  <div class="container-fluid">
+    <h6 style="float:left"> General Assembly WDI</h6>
+    <h6 style="float:right"> WEATHER<span id="title">ØR.</span>NOT created by <%= link_to 'Jeffrey Campomanes', 'http://www.linkedin.com/in/jeffcampomanes' %> </h6>
+  </div>
+</nav>
+
 
 
 </body>

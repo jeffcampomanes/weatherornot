@@ -16,8 +16,11 @@ Rails.application.routes.draw do
   #sign in with user signed in
   get '/weather' => 'weather#show'
 
+<<<<<<< HEAD
+=======
   # get '/weather' => 'weather#new'
 
+>>>>>>> 83fc11a5e99385db2f96b7eedc4d8b9d56ef2922
 
 
   # get "weather/index"

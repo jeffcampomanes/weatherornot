@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> </title>
+
+<div class="container">
+	<div class="row">
+		<header>
+			<div class="col-md-4 col-xs-offset-4 center-text">
+					<h1>weatherornot</h1>
+			</div>
+			
+			<br>
+			
+			<div class="col-xs-2 col-xs-offset-2">
+			 Welcome <%= @user.first_name %> !
+			 <br>
+					<form method="POST" action="/session">
+						<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+						<input name="_method" value="DELETE" type="hidden">
+						<button>Logout</button>
+					</form>
+			</div>
+	</div>
+</div>
+
+
+			<div class="col-md-4 col-md-offset-4 center-text">
+					<label>
+						Zip:
+						<input type="text" id="zipcode_1" class="zipcode_1" placeholder="(e.g. : 10175, 07003, etc)" name="zip" />
+					</label>
+					<button id="search_1">Search</button>
+			</div>
+			<br>
+
+		
+		</header>
+	</div>
+
+
+<hr>
+
+</head>
+<body>
+	
+<div id="customSpinner" class="customSpinner"> 
+</div>
+
+
+
+
+</body>
+</html>

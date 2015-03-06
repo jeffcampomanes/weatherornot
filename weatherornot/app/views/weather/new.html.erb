@@ -4,31 +4,46 @@
 	<meta charset="UTF-8">
 	<title> </title>
 
-<a href="/login"> Log In </a>
-<br>
-<a href="/register"> Sign Up </a>
+	<div class="container-fluid">
+		<div class="row">
+			<header>
+				<div class="col-md-4 col-xs-offset-4 center-text">
+					<h1 id="title">WEATHER<span id="title">ØR.</span>NOT</h1>
+				</div>
+				
+				<br>
+				
+				<div class="col-xs-2 col-xs-offset-2">
+					<span> <a href="/login"> Log In </a> </span><a href="/register"> Sign Up </a>
+				</div>
+	
+				<div class="col-md-6 col-md-offset-5 center-text">
+					<label>
+						Zip:
+						<input type="text" id="zipcode_1" class="zipcode_1" placeholder="(e.g. : 10175, 07003, etc)" name="zip" />
+					</label>
+						<i class="fa fa-search fa-2x" id="search_1" value="button"></i>
+				</div>
+				
+			</header>
+  </div>
+ </div>
 
+
+<hr>
 </head>
+
 <body>
 
-<br>
-
-<!-- search by zip code -->
-<!-- <form> -->	
-	<label>
-		Zip:
-		<input type="text" id="zipcode_1" class="zipcode_1" placeholder="(e.g. : 10175, 07003, etc)" name="zip" />
-	</label>
-	<button id="search_1">Search</button>
-<!-- </form> -->
+	<div class="splash fade-in">
+	  <h1 class="splash-title fade-in">WEATHER<span id="title">ØR.</span>NOT</h1>   
+	  <h1 class="splash-title fade-in">what will you be <span id="title">wearing?</span></h1>
+	  <a href="/#" class="splash-arrow fade-in"><i class="fa fa-angle-down fa-lg"></i></a>
+	</div> 
 
 
-<!-- weather content goes into empty div -->
-
-<ul id="weather_1" class="weather_1">
-
-</ul>
-
+	<div id="customSpinner" class="customSpinner"> 
+	</div>
 
 </body>
 </html>

@@ -23,6 +23,10 @@ class WeatherController < ApplicationController
     render :show, layout: false
   end
 
+  def splash
+    render :splash
+  end
+
   # def show_weather
   #   current_weather= HTTParty.get("http://api.wunderground.com/api/be8f986fd83540b9/hourly/q/10175.json")
 

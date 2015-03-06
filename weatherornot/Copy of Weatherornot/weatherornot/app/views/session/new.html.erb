@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<h2>weatherornot</h2>
+</head>
+<body>
+	<a href="/register"> Sign Up </a>
+	<br>
+	<br>
+	<% if @error %>
+		<p style='color: red;'>Incorrect email/password</p>
+	<%end%>
+
+	<form action="/session" method="POST">
+		<input type="text" name="email" placeholder="Email"> <br>
+		<input type="password" name="password" placeholder="Password"><br>
+		<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden"> <br>
+		<button> Submit </button>
+	</form>
+	
+</body>
+</html>
+
+

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<h2> weatherornot</h2>
+</head>
+<body>
+
+<a href="/login"> Log In </a>
+
+<br>
+<br>
+  			
+<form action="/register" class="cmxform" method="POST">
+	<fieldset>
+			<input type="text" name="first_name" placeholder="First Name"> <br>
+			<input type="text" name="last_name" placeholder="Last Name"> <br>
+			<input type="text" name="email" placeholder="Email"> <br>
+			<input type="password" name="password" placeholder="Password"> <br>
+			<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden"> <br>
+	<button> Sign Up </button>
+</form>
+
+</body>
+</html>
